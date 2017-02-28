@@ -11,7 +11,24 @@ public class Main {
 	}
 	
 	public static String translate(String input){
-		return "igpay";
+		char[] X = input.toCharArray();
+		char[] Y = new char[X.length];
+		if (isvowel(X[0])) {
+			return null;
+			} else {
+			for (int i=0; i<X.length-1;i++){
+				Y[i] = X[i+1];
+				}
+			Y[X.length-1]=X[0];
+			}
+	
+		return new String(Y)+"ay";
 	}
+	
+	public static boolean isvowel(char input){
+		return input== 'a'|| input=='e' || input=='i'|| input=='o'|| input=='u';
+	}
+	
+	
 	
 }

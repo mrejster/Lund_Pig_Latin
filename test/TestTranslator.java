@@ -8,10 +8,10 @@ public class TestTranslator {
 			assertEquals("igpay",Main.translate("pig"));
 			}
 			
-			//@Test
-			//public void testTranslator2() {
-			//assertEquals("Atinlay",Main.translate("Latin"));
-			//}
+			@Test
+			public void testTranslator2() {
+			assertEquals("atinlay",Main.translate("latin"));
+			}
 		}
 			
 			
