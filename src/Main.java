@@ -10,6 +10,17 @@ public class Main {
         System.out.println(translate(input));
     }
 
+    public static String translateMany(String input){
+        String[] words = input.split("\\s+");
+        String[] space = input.split("\\w+");
+        String pigLatin = "";
+        for(int i = 0; i < words.length; i++){
+             pigLatin += space[i] + translate(words[i]);
+        }
+        return pigLatin;
+    }
+    
+
     public static String translate(String input){
         char[] X = input.toCharArray();
         char[] Y = new char[X.length];

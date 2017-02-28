@@ -17,6 +17,16 @@ public class TestTranslator {
     public void testVowelSound() {
         assertEquals("eatway",Main.translate("eat"));
     }
+
+    @Test
+    public void testManyWords() {
+        assertEquals("eatway igpay inway atinlay",Main.translateMany("eat pig in latin"));
+    }
+
+    @Test
+    public void testManyWordsWithManySpace() {
+        assertEquals("eatway  igpay   inway     atinlay",Main.translateMany("eat  pig   in     latin"));
+    }
 }
 
 
