@@ -13,13 +13,24 @@ public class Main {
 	public static String translate(String input){
 		char[] X = input.toCharArray();
 		char[] Y = new char[X.length];
+		int j = 0; 
 		if (isvowel(X[0])) {
 			return null;
-			} else {
-			for (int i=0; i<X.length-1;i++){
-				Y[i] = X[i+1];
+	  //} else if (!isvowel(X[1]) {
+			//for (int i=0; i<X.length-1;i++){
+			//	Y[i] = X[i+1];
+			//	}
+			//Y[X.length-1]=X[0];
+	  } else {
+			while ( !isvowel(X[j]) ) {
+				j = j+1;
 				}
-			Y[X.length-1]=X[0];
+			for ( int k=0; k<X.length-j; k++ ) {
+				Y[k]=X[k+j];
+				}
+			for ( int i=0; i<j; i++ ) {
+				Y[X.length-j+i]=X[i];
+				}
 			}
 	
 		return new String(Y)+"ay";

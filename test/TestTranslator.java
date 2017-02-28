@@ -12,6 +12,16 @@ public class TestTranslator {
 			public void testTranslator2() {
 			assertEquals("atinlay",Main.translate("latin"));
 			}
+			
+			@Test
+			public void testTranslator3() {
+			assertEquals("anksthay",Main.translate("thanks"));
+			}
+			
+			@Test
+			public void testTranslator4() {
+			assertEquals("ilesmay",Main.translate("smile"));
+			}
 		}
 			
 			
