@@ -23,6 +23,22 @@ public class TestTranslator {
 			public void testTranslator4() {
 			assertEquals("ilesmay",Main.translate("smile"));
 			}
+			
+			@Test
+			public void testTranslator5() {
+			assertEquals("OISTMAY",Main.translate("MOIST"));
+			}
+			
+			@Test
+			public void testTranslator6() {
+			assertEquals("Ashtray",Main.translate("Trash"));
+			}
+			
+			@Test
+			public void testTranslator7() {
+			assertEquals("AshTray",Main.translate("TrAsh"));
+			}
+			
 	
 			
 
