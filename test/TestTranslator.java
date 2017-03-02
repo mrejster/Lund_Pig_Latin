@@ -40,7 +40,7 @@ public class TestTranslator {
 			}
 			
 	
-			
+		
 
     @Test
     public void testVowelSound() {
@@ -53,9 +53,21 @@ public class TestTranslator {
     }
 
     @Test
+    public void testManyWordsWithPunktuation() {
+       assertEquals("eatway igpay inway atinlay. ilesmay!",Main.translateMany("eat pig in latin. smile!"));
+    }
+
+    @Test
     public void testManyWordsWithManySpace() {
         assertEquals("eatway  igpay   inway     atinlay",Main.translateMany("eat  pig   in     latin"));
     }
+    
+    @Test
+    public void testSentencseCapitalLetter() {
+        assertEquals("Eatway  IGPAY   inway     atInLay",Main.translateMany("Eat  PIG   in     LatIn"));
+    }
+    
+    
 }
 
 

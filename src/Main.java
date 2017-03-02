@@ -1,20 +1,40 @@
 import java.util.Scanner;
 public class Main {
-	public static void main(String[] args){
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Please enter a word");
-		scanner.hasNext();
-		String input = scanner.next();
-		System.out.println("The translation of '" + input +"' is:");
-		System.out.println(translate(input));
-	}
+
 	
-	public static String translateMany(String input){
-        String[] words = input.split("\\s+");
-        String[] space = input.split("\\w+");
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+   
+
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter a sentence" + ANSI_BLUE);
+        scanner.hasNext();
+        String input = scanner.nextLine();
+        System.out.println(ANSI_RESET + "The translation of ' " + ANSI_GREEN  + input + ANSI_RESET + " ' is:");
+        System.out.println( ANSI_RED + translateMany(input) + ANSI_RESET);
+    }
+
+    public static String translateMany(String input){
+        char[] chars = input.toCharArray();
         String pigLatin = "";
-        for(int i = 0; i < words.length; i++){
-             pigLatin += space[i] + translate(words[i]);
+
+        String tmpWord = "";
+        for(int i = 0; i< chars.length; i++){
+            if((chars[i] + "").matches("\\W")){
+                if(tmpWord.length() > 0){
+                    pigLatin += translate(tmpWord); 
+                    tmpWord = "";
+                }
+                pigLatin += chars[i];
+            } else{
+                tmpWord += chars[i];
+            }
+        }
+        if(tmpWord.length() > 0){
+            pigLatin += translate(tmpWord); 
         }
         return pigLatin;
     }
