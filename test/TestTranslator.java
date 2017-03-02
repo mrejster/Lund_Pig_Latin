@@ -4,8 +4,8 @@ import org.junit.Test;
 
 public class TestTranslator {
 
-	@Test
-		public void testTranslator() {
+			@Test
+			public void testTranslator() {
 			assertEquals("igpay",Main.translate("pig"));
 			}
 			

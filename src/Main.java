@@ -5,7 +5,7 @@ public class Main {
 		System.out.println("Please enter a word");
 		scanner.hasNext();
 		String input = scanner.next();
-		System.out.println("The translation of ' " + input +" ' is:");
+		System.out.println("The translation of '" + input +"' is:");
 		System.out.println(translate(input));
 	}
 	
@@ -42,7 +42,6 @@ public class Main {
 				Y = swipeChars(X);
 				Y[0] = Character.toUpperCase(Y[0]);
 				return new String(Y)+"ay";
-				
 			}else{
 				Y = swipeChars(X);
 				return new String(Y)+"ay";
