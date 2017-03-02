@@ -107,7 +107,8 @@ public class Main {
 		
 	
 	public static boolean isvowel(char input){
-		return input== 'a'|| input=='e' || input=='i'|| input=='o'|| input=='u' || input=='A' || input=='E' || input=='I' || input=='O' || input=='U';
+		return input== 'a'|| input=='e' || input=='i'|| input=='o'|| input=='u' || input=='y' ||
+		 input=='A' || input=='E' || input=='I' || input=='O' || input=='U' || input=='Y';
 	}
 	
 

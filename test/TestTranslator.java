@@ -67,6 +67,11 @@ public class TestTranslator {
         assertEquals("Eatway  IGPAY   inway     atInLay",Main.translateMany("Eat  PIG   in     LatIn"));
     }
     
+    @Test
+    public void testSentencseCapitalLetter2() {
+        assertEquals("Ymay amENay isway AMEDHAY!!",Main.translateMany("My NamE is HAMED!!"));
+    }
+    
     
 }
 
