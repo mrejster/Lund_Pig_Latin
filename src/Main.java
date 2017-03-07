@@ -14,12 +14,18 @@ public class Main {
 
 
     public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter a sentence" + ANSI_BLUE);
-        scanner.hasNext();
-        String input = scanner.nextLine();
-        System.out.println(ANSI_RESET + "The translation of ' " + ANSI_GREEN  + input + ANSI_RESET + " ' is:");
-        System.out.println( ANSI_RED + translateMany(input) + ANSI_RESET);
+        if (args.length == 0){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Please enter a sentence" + ANSI_BLUE);
+            scanner.hasNext();
+            String input = scanner.nextLine();
+            System.out.println(ANSI_RESET + "The translation of ' " + ANSI_GREEN  + input + ANSI_RESET + " ' is:");
+            System.out.println( ANSI_RED + translateMany(input) + ANSI_RESET);
+        } else if (args.length == 1){
+            System.out.println(translateFile(args[0]));
+        } else {
+             translationToFile(args[1],translateFile(args[0]));
+        }
     }
 
     public static String translateFile(String file){
