@@ -75,70 +75,69 @@ public class Main {
         return pigLatin;
     }
 
+    
     public static String translate(String input){
-        char[] X = input.toCharArray();
-        char[] Y = new char[X.length];
+        char[] inputChars = input.toCharArray();
+        char[] swipedChars = new char[inputChars.length];
         int j = 0;
-        int[] Xint = detectCase(input);
-        int sum = Xint[X.length];
-        int firstLetterCase = Xint[0];
+        int[] letterCaseArray = detectCase(input);
+        int sum = letterCaseArray[inputChars.length];
+        int firstLetterCase = letterCaseArray[0];
 
-        if (isvowel(X[0])) {
-            if (sum==X.length){
+        if (isvowel(inputChars[0])) {
+            if (sum==inputChars.length){
                 return input+"WAY";
             }else{
                 return input+"way";	
             }	
         }else{
-            if (sum==X.length){
-                Y = swipeChars(X);
-                return new String(Y) + "AY";
+            if (sum==inputChars.length){
+                swipedChars = swipeChars(inputChars);
+                return new String(swipedChars) + "AY";
             }else if (sum==1 && firstLetterCase==1){
-                X[0]=Character.toLowerCase(X[0]);
-                Y = swipeChars(X);
-                Y[0] = Character.toUpperCase(Y[0]);
-                return new String(Y)+"ay";
+                inputChars[0]=Character.toLowerCase(inputChars[0]);
+                swipedChars = swipeChars(inputChars);
+                swipedChars[0] = Character.toUpperCase(swipedChars[0]);
+                return new String(swipedChars)+"ay";
             }else{
-                Y = swipeChars(X);
-                return new String(Y)+"ay";
+                swipedChars = swipeChars(inputChars);
+                return new String(swipedChars)+"ay";
             }
         }
-
     }
 
 
     public static char[] swipeChars(char[] input){
-        char[] X = input;
-        char[] W = new char[X.length];
+        char[] inputChars = input;
+        char[] swipedChars = new char[inputChars.length];
         int j=0;
-        while ( !isvowel(X[j]) && j < X.length-1  ) {
+        while ( !isvowel(inputChars[j]) && j < inputChars.length-1  ) {
             j = j+1;
         }
-        for ( int k=0; k<X.length-j; k++ ) {
-            W[k]=X[k+j];
+        for ( int k=0; k<inputChars.length-j; k++ ) {
+            swipedChars[k]=inputChars[k+j];
         }
         for ( int i=0; i<j; i++ ) {
-            W[X.length-j+i]=X[i];
+            swipedChars[inputChars.length-j+i]=inputChars[i];
         }
-        return W;
+        return swipedChars;
     }
 
 
     public static int[] detectCase(String input){
-        char[] X = input.toCharArray();
-        char[] Z = new char[X.length];
-        int[] Xint = new int[X.length+1];
+        char[] inputChars = input.toCharArray();
+        int[] letterCaseArray = new int[inputChars.length+1];
         int sum=0;
-        for ( int i=0; i<X.length; i++ ){
-            if ( Character.isUpperCase(X[i]) ){
-                Xint[i]=1;
+        for ( int i=0; i<inputChars.length; i++ ){
+            if ( Character.isUpperCase(inputChars[i]) ){
+                letterCaseArray[i]=1;
                 sum=sum+1;
             }else{
-                Xint[i]=0;
+                letterCaseArray[i]=0;
             }	
         }
-        Xint[X.length]=sum;
-        return Xint;
+        letterCaseArray[inputChars.length]=sum;
+        return letterCaseArray;
     }
 
 
