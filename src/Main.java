@@ -87,9 +87,9 @@ public class Main {
         int firstLetterCase = letterCaseArray[0];
         if (isvowel(inputChars[0])) {
             if (sum == inputChars.length){
-                return input+"AY";
+                return input+"WAY";
             }else{
-                return input+"ay";
+                return input+"way";
             }	
         }else{
             if (sum == inputChars.length){
