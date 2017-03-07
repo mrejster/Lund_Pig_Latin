@@ -28,6 +28,7 @@ public class Main {
         }
     }
 
+    
     public static String translateFile(String file){
         try{
             return translateMany(readFile(file));
@@ -35,9 +36,9 @@ public class Main {
 
         }
         return "";
-
     }
 
+    
     public static void translationToFile(String file, String translation){
         try{
             Files.write(Paths.get(file),translation.getBytes());
@@ -46,17 +47,18 @@ public class Main {
         }
     }
 
-    static String readFile(String path) 
+    
+    public static String readFile(String path)
         throws IOException 
     {
         byte[] encoded = Files.readAllBytes(Paths.get(path));
         return new String(encoded);
     }
 
+    
     public static String translateMany(String input){
         char[] chars = input.toCharArray();
         String pigLatin = "";
-
         String tmpWord = "";
         for(int i = 0; i< chars.length; i++){
             if((chars[i] + "").matches("\\W")){
@@ -83,19 +85,18 @@ public class Main {
         int[] letterCaseArray = detectCase(input);
         int sum = letterCaseArray[inputChars.length];
         int firstLetterCase = letterCaseArray[0];
-
         if (isvowel(inputChars[0])) {
-            if (sum==inputChars.length){
+            if (sum == inputChars.length){
                 return input+"WAY";
             }else{
                 return input+"way";	
             }	
         }else{
-            if (sum==inputChars.length){
+            if (sum == inputChars.length){
                 swipedChars = swipeChars(inputChars);
                 return new String(swipedChars) + "AY";
-            }else if (sum==1 && firstLetterCase==1){
-                inputChars[0]=Character.toLowerCase(inputChars[0]);
+            }else if (sum == 1 && firstLetterCase == 1){
+                inputChars[0] = Character.toLowerCase(inputChars[0]);
                 swipedChars = swipeChars(inputChars);
                 swipedChars[0] = Character.toUpperCase(swipedChars[0]);
                 return new String(swipedChars)+"ay";
@@ -110,15 +111,15 @@ public class Main {
     public static char[] swipeChars(char[] input){
         char[] inputChars = input;
         char[] swipedChars = new char[inputChars.length];
-        int j=0;
-        while ( !isvowel(inputChars[j]) && j < inputChars.length-1  ) {
+        int j = 0;
+        while (!isvowel(inputChars[j]) && j < inputChars.length-1){
             j = j+1;
         }
-        for ( int k=0; k<inputChars.length-j; k++ ) {
-            swipedChars[k]=inputChars[k+j];
+        for (int k = 0; k<inputChars.length-j; k++){
+            swipedChars[k] = inputChars[k+j];
         }
-        for ( int i=0; i<j; i++ ) {
-            swipedChars[inputChars.length-j+i]=inputChars[i];
+        for (int i = 0; i<j; i++){
+            swipedChars[inputChars.length-j+i] = inputChars[i];
         }
         return swipedChars;
     }
@@ -127,16 +128,16 @@ public class Main {
     public static int[] detectCase(String input){
         char[] inputChars = input.toCharArray();
         int[] letterCaseArray = new int[inputChars.length+1];
-        int sum=0;
-        for ( int i=0; i<inputChars.length; i++ ){
-            if ( Character.isUpperCase(inputChars[i]) ){
-                letterCaseArray[i]=1;
-                sum=sum+1;
+        int sum = 0;
+        for ( int i = 0; i<inputChars.length; i++ ){
+            if (Character.isUpperCase(inputChars[i])){
+                letterCaseArray[i] = 1;
+                sum = sum+1;
             }else{
-                letterCaseArray[i]=0;
+                letterCaseArray[i] = 0;
             }	
         }
-        letterCaseArray[inputChars.length]=sum;
+        letterCaseArray[inputChars.length] = sum;
         return letterCaseArray;
     }
 
