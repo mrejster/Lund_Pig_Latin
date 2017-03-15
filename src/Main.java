@@ -22,7 +22,13 @@ public class Main {
             System.out.println(ANSI_RESET + "The translation of ' " + ANSI_GREEN  + input + ANSI_RESET + " ' is:");
             System.out.println( ANSI_RED + translateMany(input) + ANSI_RESET);
         } else if (args.length == 1){
-            System.out.println(translateFile(args[0]));
+            File f = new File(args[0]);
+            if(f.exists()){ 
+                System.out.println(translateFile(args[0]));
+            }
+            else {
+                System.out.println(translateMany(args[0]));
+            }
         } else {
              translationToFile(args[1],translateFile(args[0]));
         }
